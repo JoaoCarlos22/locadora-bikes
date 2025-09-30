@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const { engine } = require('express-handlebars')
 const bikeRoutes = require('./routes/bikeRoutes')
 const clienteRoutes = require('./routes/clientesRoutes')
@@ -23,6 +24,7 @@ app.set('views', './views')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(fileUpload())
 app.use('/bicicleta', bikeRoutes)
 app.use('/cliente', clienteRoutes)
 

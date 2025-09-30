@@ -9,5 +9,4 @@ router.get('/clientes', listarClientes);
 router.get('/alugarBike/:bike_codigo', exibirTelaAlugarBike)
 router.post('/alugarBike/:bike_codigo', alugarBike);
 
-
 module.exports = router;

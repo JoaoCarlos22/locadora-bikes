@@ -7,12 +7,14 @@ let clientes = [];
 exports.cadastrarCliente = async (req, res) => {
     try {
         const { nome, cpf, fone, email } = req.body;
-        const foto = req.file.foto;
+        const foto = req.files.foto;
 
         if (!nome || !cpf || !fone || !email || !foto) {
             res.redirect('/?msg=erro');
         }
-        foto.mv(__dirname + '/imagens/' + foto.name);
+
+        // salva a foto na pasta imagens
+        await foto.mv(__dirname + '/../public/imagens/' + foto.name);
 
         const novoCliente = {
             id: clientes.length + 1,
