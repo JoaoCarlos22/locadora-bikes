@@ -31,4 +31,9 @@
     <div class="text-center mt-4">
         <a href="/bicicleta/cadastrar" class="btn btn-primary">Cadastrar Nova Bicicleta</a>
     </div>
+    <div class="text-center mt-3">
+        <a href="/bicicleta/disponiveis" class="btn btn-success{{#unless bikes.length}} disabled{{/unless}}" role="button" aria-disabled="{{#unless bikes.length}}true{{/unless}}">
+            Visualizar Bicicletas Disponíveis
+        </a>
+    </div>
 </div>
