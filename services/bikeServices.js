@@ -2,7 +2,7 @@
 bikes = [];
 
 exports.teste = async (req, res) => {
-    res.render('home')
+    res.redirect('/bicicleta/bicicletas');
 }
 
 // Lógica para cadastrar uma bike localmente
@@ -65,3 +65,5 @@ exports.bikesDisponiveis = async (req, res) => {
         res.status(500).send('Erro ao listar as bicicletas disponíveis\n\n', error);
     }
 }
+
+module.exports.bikes = bikes;

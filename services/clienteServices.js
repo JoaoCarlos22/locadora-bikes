@@ -1,4 +1,4 @@
-const bikes = require('./bikeServices');
+const { bikes } = require('./bikeServices');
 
 // array de clientes (simulando um banco de dados)
 let clientes = [];
@@ -46,7 +46,15 @@ exports.exibirTelaCadastro = async (req, res) => {
 }
 
 exports.exibirTelaAlugarBike = async (req, res) => {
-    res.render('alugarBike', { bike_id: req.params.bike_id, clientes });
+    // verifica se a bicicleta existe
+    const bike = bikes.find(b => b.id === parseInt(req.params.bike_codigo));
+    if (!bike) {
+        return res.status(404).send('Bicicleta não encontrada.');
+    }
+    res.render('alugarBike', {
+        bike: bike, 
+        bike_id: req.params.bike_codigo, 
+        clientes });
 }
 
 exports.alugarBike = async (req, res) => {

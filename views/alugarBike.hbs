@@ -1,0 +1,32 @@
+<div class="container mt-5">
+	<h2 class="mb-4 text-center">Alugar Bicicleta</h2>
+	<div class="card mb-4 mx-auto" style="max-width: 500px;">
+		<div class="card-body">
+			<h5 class="card-title">{{bike.modelo}}</h5>
+			<p class="card-text">
+				<strong>Marca:</strong> {{bike.marca}}<br>
+				<strong>Cor:</strong> {{bike.cor}}<br>
+			</p>
+		</div>
+	</div>
+	<form action="/cliente/alugarBike/{{bike_id}}" method="POST" class="mx-auto" style="max-width: 500px;">
+		<div class="mb-3">
+			<label for="cliente_id" class="form-label">Selecione o Cliente</label>
+			<select class="form-select" id="cliente_id" name="cliente_id" required>
+				<option value="" disabled selected>Escolha um cliente</option>
+				{{#each clientes}}
+					<option value="{{id}}">{{nome}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="mb-3">
+			<label for="data_saida" class="form-label">Data de Saída</label>
+			<input type="date" class="form-control" id="data_saida" name="data_saida" required>
+		</div>
+		<div class="mb-3">
+			<label for="data_retorno" class="form-label">Data de Retorno</label>
+			<input type="date" class="form-control" id="data_retorno" name="data_retorno" required>
+		</div>
+		<button type="submit" class="btn btn-success w-100">Confirmar Aluguel</button>
+	</form>
+</div>

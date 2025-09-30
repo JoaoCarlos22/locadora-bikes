@@ -1,0 +1,27 @@
+<div class="container mt-4">
+	<h1 class="text-center mb-4">Bicicletas Alugadas</h1>
+
+	{{#if bikes.length}}
+		<div class="row justify-content-center">
+			{{#each bikes}}
+				<div class="col-md-6 col-lg-4 mb-4">
+					<div class="card shadow-sm h-100">
+						<div class="card-body">
+							<h5 class="card-title">Marca: {{marca}}</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Modelo: {{modelo}}</h6>
+							<p class="card-text mb-1"><strong>Cor:</strong> {{cor}}</p>
+							<p class="card-text mb-2"><strong>Observação:</strong> {{observacao}}</p>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	{{else}}
+		<div class="alert alert-warning text-center mt-4" role="alert">
+			Nenhuma bicicleta alugada no momento.
+		</div>   
+	{{/if}}
+    <div class="text-center mt-3">
+            <a href="/bicicleta/bicicletas" class="btn btn-primary">Visualizar Todas as Bicicletas</a>
+        </div>
+</div>
