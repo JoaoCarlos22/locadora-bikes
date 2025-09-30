@@ -54,3 +54,14 @@ exports.bikesAlugadas = async (req, res) => {
         res.status(500).send('Erro ao listar as bicicletas alugadas\n\n', error);
     }
 }
+
+exports.bikesDisponiveis = async (req, res) => {
+    try {
+        // filtra as bikes disponíveis
+        const bikesDisponiveis = bikes.filter(b => b.observacao.startsWith('Disponível'));
+
+        res.render('bikesDisponiveis', { bikes: bikesDisponiveis });
+    } catch (error) {
+        res.status(500).send('Erro ao listar as bicicletas disponíveis\n\n', error);
+    }
+}
